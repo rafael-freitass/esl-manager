@@ -1,0 +1,357 @@
+.button {
+  display: inline-flex;
+  height: 39px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 0 15px;
+  font-size: 11px;
+  font-weight: 600;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    opacity 140ms ease;
+}
+
+.button-primary {
+  background: var(--blue);
+  color: white;
+}
+
+.button-primary:hover {
+  background: var(--blue-hover);
+}
+
+.button-primary:disabled {
+  opacity: 0.45;
+}
+
+.button-secondary {
+  border-color: var(--border-light);
+  background: transparent;
+  color: #b4bdc9;
+}
+
+.button-secondary:hover {
+  background: var(--surface-hover);
+}
+
+.button-danger {
+  background: #d8535c;
+  color: white;
+}
+
+.button-danger:hover {
+  background: #e26069;
+}
+
+.icon-button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #737e8e;
+  padding: 0;
+  transition:
+    color 140ms ease,
+    background 140ms ease;
+}
+
+.icon-button:hover {
+  background: var(--surface-hover);
+  color: #bac3cf;
+}
+
+.danger-icon:hover {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(5, 7, 10, 0.72);
+  backdrop-filter: blur(3px);
+  padding: 30px;
+}
+
+.modal {
+  width: min(440px, 100%);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  background: #181d24;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.modal-wide {
+  width: min(560px, 100%);
+}
+
+.modal-header {
+  display: flex;
+  min-height: 78px;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 21px;
+}
+
+.modal-header h2 {
+  color: #e7ebf0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.modal-header p {
+  margin-top: 6px;
+  color: #7d8795;
+  font-size: 10px;
+}
+
+.modal-header .icon-button {
+  margin: -4px -5px 0 10px;
+}
+
+.modal-body {
+  padding: 21px;
+}
+
+.modal-actions {
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  border-top: 1px solid var(--border);
+  padding: 14px 21px;
+}
+
+.confirmation-content {
+  padding: 24px 21px;
+}
+
+.confirmation-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--blue-soft);
+  color: #76a3ff;
+}
+
+.confirmation-icon.danger {
+  background: var(--red-soft);
+  color: var(--red);
+}
+
+.confirmation-content > p {
+  margin-top: 16px;
+  color: #9da7b4;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.confirmation-content > p strong {
+  color: #e0e5eb;
+  font-weight: 600;
+}
+
+.warning-note {
+  margin-top: 14px;
+  border-left: 2px solid #cd565f;
+  background: var(--red-soft);
+  padding: 9px 11px;
+  color: #bf858a;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.associate-body {
+  padding-bottom: 16px;
+}
+
+.associate-body .search-field {
+  width: 100%;
+}
+
+.product-options {
+  display: flex;
+  max-height: 310px;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+  margin-top: 12px;
+  padding-right: 3px;
+}
+
+.product-option {
+  display: flex;
+  min-height: 57px;
+  align-items: center;
+  gap: 11px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 9px 11px;
+  text-align: left;
+}
+
+.product-option:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.product-option.selected {
+  border-color: rgba(79, 140, 255, 0.38);
+  background: var(--blue-soft);
+}
+
+.radio {
+  display: grid;
+  width: 15px;
+  height: 15px;
+  flex: none;
+  place-items: center;
+  border: 1px solid #4a5462;
+  border-radius: 50%;
+}
+
+.product-option.selected .radio {
+  border-color: var(--blue);
+}
+
+.radio span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.product-option-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-option-copy strong {
+  color: #cdd3dc;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.product-option-copy small {
+  color: #687281;
+  font-size: 8px;
+}
+
+.option-price {
+  color: #adb6c2;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.small-empty {
+  padding: 34px 0;
+  color: #6d7785;
+  font-size: 10px;
+  text-align: center;
+}
+
+.associated-product-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 17px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #14181e;
+  padding: 13px;
+}
+
+.associated-product-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.associated-product-card strong {
+  color: #cbd2da;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.associated-product-card span {
+  color: #697382;
+  font-size: 8px;
+}
+
+.toast {
+  position: fixed;
+  z-index: 80;
+  right: 28px;
+  bottom: 26px;
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(75, 201, 140, 0.25);
+  border-radius: 8px;
+  background: #1b2422;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+  padding: 0 16px 0 11px;
+  color: #b6d9c8;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.toast > span {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #b8c0cb;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.text-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--border-light);
+  border-radius: 7px;
+  background: #13171c;
+  padding: 0 12px;
+  color: #e2e6ec;
+  font-size: 11px;
+  transition: border-color 140ms ease;
+}
+
+.text-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-soft);
+}
+
+.field-help {
+  display: block;
+  margin-top: 8px;
+  color: #626c79;
+  font-size: 9px;
+}

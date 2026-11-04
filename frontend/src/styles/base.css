@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #e9edf3;
+  background: #101318;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --bg: #101318;
+  --sidebar: #15191f;
+  --surface: #171b22;
+  --surface-raised: #1c2129;
+  --surface-hover: #212731;
+  --border: #292f39;
+  --border-light: #323a46;
+  --text: #edf1f6;
+  --text-secondary: #9aa4b2;
+  --text-muted: #697382;
+  --blue: #4f8cff;
+  --blue-hover: #659aff;
+  --blue-soft: rgba(79, 140, 255, 0.12);
+  --green: #4bc98c;
+  --green-soft: rgba(75, 201, 140, 0.11);
+  --red: #f06c75;
+  --red-soft: rgba(240, 108, 117, 0.1);
+}
+
+@layer base {
+  body {
+    min-width: 1080px;
+    min-height: 100vh;
+    background: var(--bg);
+  }
+
+  button,
+  input,
+  select {
+    outline: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+* {
+  scrollbar-color: #343c48 transparent;
+  scrollbar-width: thin;
+}

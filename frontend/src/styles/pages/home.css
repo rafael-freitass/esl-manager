@@ -1,0 +1,165 @@
+.welcome {
+  padding: 17px 0 28px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--blue);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.welcome h2 {
+  color: var(--text);
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.welcome p {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.summary-card {
+  display: flex;
+  min-height: 105px;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  padding: 20px;
+}
+
+.summary-icon,
+.shortcut-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  place-items: center;
+  border-radius: 8px;
+}
+
+.summary-icon.blue {
+  background: var(--blue-soft);
+  color: #6d9cff;
+}
+
+.summary-icon.gray {
+  background: rgba(148, 158, 172, 0.09);
+  color: #8f99a7;
+}
+
+.summary-icon.green {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.summary-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.summary-card span {
+  color: var(--text-secondary);
+  font-size: 10px;
+}
+
+.summary-card strong {
+  color: var(--text);
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.shortcuts {
+  margin-top: 36px;
+  border-top: 1px solid var(--border);
+  padding-top: 30px;
+}
+
+.section-heading h3 {
+  color: #dde2e9;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.section-heading p {
+  margin-top: 5px;
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 17px;
+}
+
+.shortcut-card {
+  display: flex;
+  min-height: 96px;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  padding: 19px;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-align: left;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease;
+}
+
+.shortcut-card:hover {
+  border-color: var(--border-light);
+  background: var(--surface-raised);
+}
+
+.shortcut-card.primary-shortcut {
+  border-color: rgba(79, 140, 255, 0.23);
+}
+
+.shortcut-card > div:nth-child(2) {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shortcut-card strong {
+  color: #dce2ea;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.shortcut-card span {
+  color: #77818e;
+  font-size: 10px;
+}
+
+.shortcut-icon {
+  background: #202631;
+  color: #8793a3;
+}
+
+.primary-shortcut .shortcut-icon {
+  background: var(--blue-soft);
+  color: #72a0ff;
+}

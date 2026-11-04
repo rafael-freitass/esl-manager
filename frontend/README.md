@@ -1,75 +1,71 @@
-# React + TypeScript + Vite
+# ESL Manager — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web para consultar produtos e gerenciar etiquetas eletrônicas de
+preço (ESL), incluindo a associação entre etiquetas e produtos. A interface está
+em português (pt-BR) e foi construída com React, TypeScript, Vite e React
+Router.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 20.19 ou superior, ou 22.12 ou superior.
+- npm.
 
-## React Compiler
+## Como executar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Na pasta `frontend`, instale as dependências e inicie o servidor de
+desenvolvimento:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+O Vite exibirá no terminal o endereço local para abrir no navegador. Para gerar
+e servir localmente a versão de produção:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run build
+npm run preview
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Funcionalidades
 
+- **Início (`/`)**: resumo de etiquetas totais, disponíveis e associadas, com
+  atalhos para as demais áreas.
+- **Etiquetas (`/etiquetas`)**: consulta, busca por identificador, filtro por
+  status, criação, edição e exclusão de etiquetas; associação e remoção da
+  associação com produtos. Identificadores são normalizados para maiúsculas e
+  não podem se repetir.
+- **Produtos (`/produtos`)**: catálogo para consulta com busca por nome ou
+  código e exibição de preço.
+
+Atualmente os Mockups das etiquetas estão em `src/data/labels.json` e dos produtos estão em
+`src/data/products.json`. Ambos são dados JSON, que servem como demonstração. A conexão com o banco de dados ocorrerá posteriomente.
+
+## Comandos
+
+| Comando                | Descrição                                                                   |
+| ---------------------- | --------------------------------------------------------------------------- |
+| `npm run dev`          | Inicia o servidor de desenvolvimento do Vite.                               |
+| `npm run build`        | Verifica os tipos com TypeScript e gera os arquivos de produção em `dist/`. |
+| `npm run preview`      | Serve localmente a build de produção.                                       |
+| `npm run lint`         | Analisa o projeto com ESLint.                                               |
+| `npm run format`       | Formata os arquivos com Prettier.                                           |
+| `npm run format:check` | Verifica a formatação sem alterar os arquivos.                              |
+
+## Estrutura do projeto
+
+```text
+src/
+├── components/       # Layout, elementos compartilhados e diálogos de etiquetas
+├── config/           # Metadados das páginas e rotas
+├── data/             # Dados locais de produtos e etiquetas
+├── hooks/            # Estado e operações de gerenciamento de etiquetas
+├── Pages/            # Telas de início, etiquetas e produtos
+├── routes/           # Definição das rotas da aplicação
+├── styles/           # Estilos de layout, componentes, páginas e responsividade
+├── types/            # Tipos do domínio e dos diálogos
+├── utils/            # Funções utilitárias, como formatação de preços
+├── App.tsx           # Composição da aplicação e diálogos globais
+└── main.tsx          # Ponto de entrada React e configuração do roteador
 ```
