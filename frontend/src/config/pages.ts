@@ -1,4 +1,4 @@
-import type { IconName } from '../components/Icon'
+import type { IconName } from '../components/Icon.tsx'
 
 type PageConfig = {
   path: string
@@ -27,6 +27,3 @@ export const pages = {
     icon: 'package',
   },
 } satisfies Record<string, PageConfig>
-
-export type PageId = keyof typeof pages
-export type ShortcutPageId = Exclude<PageId, 'home'>

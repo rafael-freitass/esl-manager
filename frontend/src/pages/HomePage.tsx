@@ -1,6 +1,6 @@
-import { Icon } from '../components/Icon'
+import { Icon } from '../components/Icon.tsx'
 import { Link } from 'react-router'
-import { pages } from '../config/pages'
+import { pages } from '../config/pages.ts'
 
 type HomePageProps = {
   counts: { total: number; available: number; associated: number }
@@ -11,7 +11,7 @@ export function HomePage({ counts }: HomePageProps) {
     <div className="home-page">
       <section className="welcome">
         <span className="eyebrow">VISÃO GERAL</span>
-        <h2>Olá, Rafael. Bem-vindo ao ESL Manager.</h2>
+        <h2>Olá, administrador. Bem-vindo ao ESL Manager.</h2>
         <p>
           Gerencie suas etiquetas eletrônicas e mantenha os produtos
           organizados.

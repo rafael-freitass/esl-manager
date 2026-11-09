@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class EslmanagerApplication {
-
 	public static void main(String[] args) {
-		SpringApplication.run(EslmanagerApplication.class, args);
-	}
 
+		SpringApplication.run(EslmanagerApplication.class, args);
+
+	}
 }

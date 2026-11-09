@@ -355,3 +355,38 @@
   color: #626c79;
   font-size: 9px;
 }
+
+.field-help + .field-label {
+  margin-top: 16px;
+}
+
+.product-form .text-input + .field-label {
+  margin-top: 20px;
+}
+
+.form-error {
+  margin-top: 10px;
+  color: #f08087;
+  font-size: 10px;
+}
+
+.modal-fields {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.modal-error,
+.modal-progress {
+  margin: 12px 21px;
+}
+
+.modal-progress {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.badge.sync-sending { background: #e8efff; color: #2452a1; }
+.badge.sync-error { background: #fce8e6; color: #a52219; }
+.sync-detail { display: block; max-width: 260px; margin-top: 6px; line-height: 1.4; }

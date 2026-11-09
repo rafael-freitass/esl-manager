@@ -104,9 +104,21 @@
 
 .shortcut-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 17px;
+}
+
+@media (max-width: 1000px) {
+  .shortcut-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .shortcut-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .shortcut-card {

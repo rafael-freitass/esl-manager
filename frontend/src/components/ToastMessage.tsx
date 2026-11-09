@@ -1,4 +1,4 @@
-import { Icon } from './Icon'
+import { Icon } from './Icon.tsx'
 
 export function ToastMessage({ message }: { message: string | null }) {
   if (!message) return null

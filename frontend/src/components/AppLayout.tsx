@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { NavLink, useLocation } from 'react-router'
-import { pages } from '../config/pages'
-import { Icon } from './Icon'
+import { pages } from '../config/pages.ts'
+import { Icon } from '../components/Icon.tsx'
 
 type AppLayoutProps = {
   children: ReactNode
@@ -58,11 +58,11 @@ export function AppLayout({ children }: AppLayoutProps) {
           </div>
           <div className="profile">
             <div className="profile-copy">
-              <strong>Rafael Freitas</strong>
-              <span>Operador da loja</span>
+              <strong>Administrador</strong>
+              <span>Administrador do sistema</span>
             </div>
-            <div className="avatar" aria-label="Perfil de Rafael Freitas">
-              RF
+            <div className="avatar" aria-label="Perfil de administrador">
+              AD
             </div>
           </div>
         </header>

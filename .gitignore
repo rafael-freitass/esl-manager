@@ -3,6 +3,9 @@
 .env.*
 !.env.example
 
+# Local database bootstrap SQL (kept out of the public repository)
+/backend/src/main/resources/schema.sql
+
 # Java / Spring Boot
 **/target/
 **/build/

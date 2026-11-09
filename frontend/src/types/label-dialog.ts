@@ -1,4 +1,4 @@
-import type { ShelfLabel } from './index'
+import type { ShelfLabel } from './index.ts'
 
 export type LabelDialogState =
   | { type: 'create' }

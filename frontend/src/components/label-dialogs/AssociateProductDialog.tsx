@@ -1,21 +1,25 @@
 import { useState } from 'react'
-import type { Product, ShelfLabel } from '../../types'
-import { formatPrice } from '../../utils/formatPrice'
-import { Button } from '../Button'
-import { Icon } from '../Icon'
-import { Modal } from '../Modal'
+import type { Product, ShelfLabel } from '../../types/index.ts'
+import { formatPrice } from '../../utils/formatPrice.ts'
+import { Button } from '../Button.tsx'
+import { Icon } from '../Icon.tsx'
+import { Modal } from '../Modal.tsx'
 
 type AssociateProductDialogProps = {
   label: ShelfLabel
   products: Product[]
+  busy: boolean
+  error: string | null
   onClose: () => void
-  onConfirm: (productCode: string) => void
+  onConfirm: (productCode: string) => Promise<void>
 }
 
 export function AssociateProductDialog({
   label,
   products,
   onClose,
+  busy,
+  error,
   onConfirm,
 }: AssociateProductDialogProps) {
   const [search, setSearch] = useState('')
@@ -32,8 +36,10 @@ export function AssociateProductDialog({
   return (
     <Modal
       title="Associar produto"
-      description={`Selecione um produto para ${label.identifier}.`}
+      description={`Selecione um produto para ${label.name} (${label.identifier}).`}
       onClose={onClose}
+      busy={busy}
+      error={error}
       width="wide"
     >
       <div className="modal-body associate-body">
@@ -83,8 +89,7 @@ export function AssociateProductDialog({
           disabled={!selectedProductCode}
           onClick={() => {
             if (!selectedProductCode) return
-            onConfirm(selectedProductCode)
-            onClose()
+            void onConfirm(selectedProductCode)
           }}
         >
           Confirmar associação

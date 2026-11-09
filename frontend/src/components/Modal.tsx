@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef } from 'react'
 import type { ReactNode } from 'react'
-import { Icon } from './Icon'
+import { Icon } from './Icon.tsx'
 
 type ModalProps = {
   title: string
@@ -8,9 +8,19 @@ type ModalProps = {
   children: ReactNode
   onClose: () => void
   width?: 'standard' | 'wide'
+  busy?: boolean
+  error?: string | null
 }
 
-export function Modal({title, description, children, onClose, width = 'standard'}: ModalProps) {
+export function Modal({
+  title,
+  description,
+  children,
+  onClose,
+  width = 'standard',
+  busy = false,
+  error,
+}: ModalProps) {
   const dialogRef = useRef<HTMLElement>(null)
   const titleId = useId()
   const descriptionId = useId()
@@ -40,7 +50,7 @@ export function Modal({title, description, children, onClose, width = 'standard'
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.key === 'Escape') {
       event.preventDefault()
-      onClose()
+      if (!busy) onClose()
       return
     }
 
@@ -82,7 +92,7 @@ export function Modal({title, description, children, onClose, width = 'standard'
       className="modal-backdrop"
       role="presentation"
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) onClose()
+        if (!busy && event.target === event.currentTarget) onClose()
       }}
     >
       <section
@@ -90,6 +100,7 @@ export function Modal({title, description, children, onClose, width = 'standard'
         className={`modal ${width === 'wide' ? 'modal-wide' : ''}`}
         role="dialog"
         aria-modal="true"
+        aria-busy={busy}
         aria-labelledby={titleId}
         aria-describedby={description ? descriptionId : undefined}
         tabIndex={-1}
@@ -105,12 +116,25 @@ export function Modal({title, description, children, onClose, width = 'standard'
             type="button"
             className="icon-button"
             onClick={onClose}
+            disabled={busy}
             aria-label="Fechar"
           >
             <Icon name="x" />
           </button>
         </div>
-        {children}
+        {error && (
+          <p className="form-error modal-error" role="alert">
+            {error}
+          </p>
+        )}
+        {busy && (
+          <p className="modal-progress" role="status">
+            Salvando alteração...
+          </p>
+        )}
+        <fieldset className="modal-fields" disabled={busy}>
+          {children}
+        </fieldset>
       </section>
     </div>
   )

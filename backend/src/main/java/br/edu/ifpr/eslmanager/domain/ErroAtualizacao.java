@@ -1,0 +1,6 @@
+package br.edu.ifpr.eslmanager.domain;
+
+public enum ErroAtualizacao {
+    TIMEOUT, FALHA_COMUNICACAO, RESPOSTA_HTTP_INVALIDA, ACK_INVALIDO,
+    ENVIO_NAO_AGENDADO, ENVIO_INTERROMPIDO, FALHA_INTERNA
+}

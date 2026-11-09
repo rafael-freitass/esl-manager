@@ -1,4 +1,4 @@
-import { Icon } from './Icon'
+import { Icon } from './Icon.tsx'
 
 export function EmptyState({ message }: { message: string }) {
   return (

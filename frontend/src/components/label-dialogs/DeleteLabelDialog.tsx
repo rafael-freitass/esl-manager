@@ -1,17 +1,21 @@
-import type { ShelfLabel } from '../../types'
-import { Button } from '../Button'
-import { Icon } from '../Icon'
-import { Modal } from '../Modal'
+import type { ShelfLabel } from '../../types/index.ts'
+import { Button } from '../Button.tsx'
+import { Icon } from '../Icon.tsx'
+import { Modal } from '../Modal.tsx'
 
 type DeleteLabelDialogProps = {
   label: ShelfLabel
+  busy: boolean
+  error: string | null
   onClose: () => void
-  onConfirm: () => void
+  onConfirm: () => Promise<void>
 }
 
 export function DeleteLabelDialog({
   label,
   onClose,
+  busy,
+  error,
   onConfirm,
 }: DeleteLabelDialogProps) {
   return (
@@ -19,6 +23,8 @@ export function DeleteLabelDialog({
       title="Excluir etiqueta"
       description="Esta ação não poderá ser desfeita."
       onClose={onClose}
+      busy={busy}
+      error={error}
     >
       <div className="confirmation-content">
         <div className="confirmation-icon danger">
@@ -26,11 +32,12 @@ export function DeleteLabelDialog({
         </div>
         <p>
           Tem certeza que deseja excluir a etiqueta{' '}
-          <strong>{label.identifier}</strong>?
+          <strong>{label.name}</strong> ({label.identifier})?
         </p>
-        {label.status === 'associated' && (
+        {!label.canDelete && (
           <div className="warning-note">
-            A associação atual com um produto também será removida.
+            {label.deletionBlockReason ??
+              'Aguarde a confirmação de limpeza antes de excluir.'}
           </div>
         )}
       </div>
@@ -40,9 +47,9 @@ export function DeleteLabelDialog({
         </Button>
         <Button
           variant="danger"
+          disabled={busy || !label.canDelete}
           onClick={() => {
-            onConfirm()
-            onClose()
+            void onConfirm()
           }}
         >
           Excluir etiqueta

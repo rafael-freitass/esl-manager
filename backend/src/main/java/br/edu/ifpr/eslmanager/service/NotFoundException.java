@@ -1,0 +1,5 @@
+package br.edu.ifpr.eslmanager.service;
+
+public class NotFoundException extends RuntimeException {
+    public NotFoundException(String message) { super(message); }
+}
